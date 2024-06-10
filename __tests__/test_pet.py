@@ -44,4 +44,20 @@ def test_post_pet():
 
 
 
+def test_get_pet():
+    #dados de entrada e saída/ resultado esperado estão na seção de atributos antes das funções
+    response = requests.get(
+        url=f'{url}/{pet_id}',
+        headers=headers,
+        #Não tem body
+        timeout= 5
+    ) 
+
+    response_body = response.json()
+
+    assert response.status_code == 200
+    assert response_body['name'] == pet_name
+    assert response_body['category']['id'] == pet_category_id
+    assert response_body['tags'][0]['id'] == pet_tag_id
+    assert response_body['status'] == pet_status
 

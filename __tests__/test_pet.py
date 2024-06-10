@@ -61,3 +61,37 @@ def test_get_pet():
     assert response_body['tags'][0]['id'] == pet_tag_id
     assert response_body['status'] == pet_status
 
+def test_put_pet():
+    pet = open('./fixtures/json/pet2.json')
+    data = json.loads(pet.read())
+
+    response = requests.put(
+        url=url,
+        headers=headers,
+        data=json.dumps(data),
+        timeout=5
+    )
+
+    response_body = response.json()
+
+    assert response.status_code == 200
+    assert response_body['id'] == pet_id
+    assert response_body['name'] == "Hannah"
+    assert response_body['category']['name'] == "cat"
+    assert response_body['category']['id'] == 2
+    assert response_body['tags'][0]['name'] == pet_tag_name
+    assert response_body['tags'][0]['id'] == pet_tag_id
+    assert response_body['status'] == "sold"
+
+def test_delete_pet():
+    response = requests.delete(
+        url=f'{url}/{pet_id}',
+        headers=headers,
+        timeout=5
+    )
+
+    response_body = response.json()
+    assert response.status_code == 200
+    assert response_body['code'] == 200
+    assert response_body['message'] == f'{pet_id}'
+

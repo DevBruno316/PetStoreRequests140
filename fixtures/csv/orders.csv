@@ -1,0 +1,5 @@
+order_id,order_petId,order_quantity,order_shipDate,order_status,order_complete
+420665203,420665203,3,2024-06-11T15:41:49.353Z,placed,true
+420665204,420665204,8,2024-12-11T15:41:49.353Z,approved,true
+420665205,420665205,1,2024-08-11T15:41:49.353Z,placed,true
+420665206,420665206,2,2024-03-11T15:41:49.353Z,delivered,true

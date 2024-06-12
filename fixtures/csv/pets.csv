@@ -1,0 +1,5 @@
+pet_id,category_id,category_name,pet_name,tags,status
+402665202,2,cat,Hannah,1-vacinado;2-vermifugado,available
+402665203,3,fish,Nemo,3-raro,available
+402665204,1,dog,Oggi,2-vermifugado,available
+402665205,4,bird,Garibaldo,3-raro,available
